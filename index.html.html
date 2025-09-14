@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+    .form-container {
+      background: #fff;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-container img {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 150px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #0f63bc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <!-- لوجو المطعم -->
+    <img src="logo.png" alt="Restaurant Logo">
+
+    <form id="feedbackForm">
+      <label for="name">الاسم</label>
+      <input type="text" name="name" required>
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" name="phone" pattern="^01[0-2,5]{1}[0-9]{8}$" required>
+
+      <label for="email">الايميل (optional):</label>
+      <input type="email" name="email">
+
+      <label for="delivery">تقييمك كام لسرعة توصيل الاوردر</label>
+      <select name="delivery" required>
+        <option value="">Choose</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="quality">تقييمك كام للكواليتي الخاصه بالاوردر </label>
+      <select name="quality" required>
+        <option value="">Choose</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="callcenter">تقييمك ايه لخدمة العملاء </label>
+      <select name="callcenter" required>
+        <option value="">Choose</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="comments">لو عندك اي تعليق ممكن يساهم في تحسين الخدمه اللي بنقدمها ممكن تسيبهالنا هنا</label>
+      <textarea name="comments" rows="4"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("شكراً على وقتك! تم إرسال تقييمك بنجاح.");
+      // هنا ممكن تضيف كود إرسال البيانات لـ Google Sheet
+    });
+  </script>
+
+</body>
+</html>
